@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+@import './theme.css'; 
+
+/*Style de l'app*/
+
+#root{
+  @apply font-poppins min-h-screen flex flex-col;
+}
+
+main{
+  @apply h-full grow flex flex-col;
+}
+
+/*Style Header*/
+header {
+    a {
+        @apply text-froly-800 underline decoration-transparent decoration-3 underline-offset-8 hover:decoration-secundary-400 transition duration-150 ease-in-out;
+    }
+
+    a.active {
+        @apply text-secundary-400;
+    }
+}
+/*Style Boutons*/
+.btn{
+  @apply bg-froly-300 text-froly-50 py-2 px-4 rounded-lg no-underline outline-2 outline-transparent hover:outline-secundary-800 hover:bg-secundary-100 hover:text-froly-800; 
+}
+
+.btn-group{
+  @apply flex flex-row; 
+}
+/*Forms*/
+.label-form{
+  @apply font-medium ;
+}
+.input-form{
+  @apply border p-1 focus:outline-2 ; 
+}

@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("/fonts/Poppins-Regular.ttf") format('truetype'); 
+}
+@font-face {
+    font-family: 'Chewy';
+    src: url("/fonts/Chewy-Regular.ttf") format('truetupe');
+}
+@theme{
+
+    --font-poppins : 'Poppins'; 
+    --font-chewy : 'Chewy'; 
+
+/*couleurs principale*/
+--color-froly-50: #fef2f3;
+--color-froly-100: #fde6e8;
+--color-froly-200: #fad1d7;
+--color-froly-300: #f6abb6;
+--color-froly-400: #ef758a;
+--color-froly-500: #e54e6c;
+--color-froly-600: #d12d55;
+--color-froly-700: #b02047;
+--color-froly-800: #941d41;
+--color-froly-900: #7f1c3d;
+--color-froly-950: #460b1d;
+
+/*couleurs secondaire*/
+--color-secundary-50: #eefffb;
+--color-secundary-100: #c6fff4;
+--color-secundary-200: #8cffea;
+--color-secundary-300: #4bfde3;
+--color-secundary-400: #16ebd3;
+--color-secundary-500: #00ceba;
+--color-secundary-600: #00a699;
+--color-secundary-700: #017c74;
+--color-secundary-800: #076863;
+--color-secundary-900: #0b5652;
+--color-secundary-950: #003534;
+
+
+--color-btn-main-300: #a4d4a2;
+
+--color-btn-second-400: #ef758a;
+
+--color-bg-main-50:#fff9e5; 
+
+--color-bg-second-50: #f8eebc; 
+}

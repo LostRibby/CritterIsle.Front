@@ -1,0 +1,152 @@
+import { useEffect, useState } from "react";
+
+const DefaultTasks = [
+    {
+        id: 1,
+        text:"Trouver les fossiles 🦴" ,
+        done: false
+    },
+     {
+        id: 2,
+        text:"Arroser les plantes🌷",
+        done: false
+    },
+     {
+        id: 3,
+        text:"visiter la boutique 🏪",
+        done: false
+    },
+     {
+        id: 4,
+        text:"Parler aux voisins 😸",
+        done: false
+    },
+     {
+        id: 5,
+        text:"attraper des insectes 🦋",
+        done: false
+    },
+     {
+        id: 6,
+        text:"Plonger dans la mer 🪼",
+        done: false
+    },
+     {
+        id: 7,
+        text:"Pêcher des poissons 🐠",
+        done: false
+    },
+     {
+        id: 8,
+        text:"Donner les trouvailles à Thibou 🦉",
+        done: false
+    },
+     {
+        id: 9,
+        text:"Faire du mobilier 🗄️",
+        done: false
+    },
+     {
+        id: 10,
+        text:"Aller chez les soeurs doigts de fée 👗",
+        done: false
+    },
+]; 
+
+export default function TasksHome(){
+
+const [tasks, setTasks] = useState(()=>{
+const saved = localStorage.getItem("tasks-ACNH"); 
+return saved? JSON.parse(saved) : DefaultTasks; 
+}); 
+
+const [bells, setBells] = useState(()=>{
+    const saved = localStorage.getItem("bells-ACNH");
+    return saved? JSON.parse(saved) : 0; 
+}); 
+
+const [streak, setStreak] = useState(()=>{
+    const saved = localStorage.getItem("streak-ACNH");
+    return saved? JSON.parse(saved) : 1; 
+});
+
+useEffect(()=>{
+    localStorage.setItem("tasks-ACNH", JSON.stringify(tasks)); 
+localStorage.setItem("bells-ACNH", JSON.stringify(bells));
+localStorage.setItem("streak-ACNH", JSON.stringify(streak));
+})
+
+const toggleTasks = (id)=>{
+    setTasks((prev) =>
+         prev.map((task)=>{
+        if(task.id===id){
+            const updated = {...task, done : !task.done};
+       
+        if(!task.done){
+            setBells((b)=>b+500); 
+        }else{
+            setBells((b)=>Math.max(0,b-500)); 
+        }
+        return updated; 
+    }
+return task;
+})
+);     
+}; 
+const completedTasks = tasks.filter((t)=> t.done).length;
+
+const weatherList = ["☀️Soleil", "🌧️Pluie", "☁️Nuageux", "☃️Neigeux", "🌈Arc-en-Ciel"]; 
+const weather = weatherList[new Date().getDate() % weatherList.length];
+
+return(
+    <section>
+<div className="min-h-screen bg-gradient-to-b from-coral-200 to-coral-400 flex items-center justify-center p-6">
+    <div  className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md">
+       <h1 className="text-center font-bold text-center mb-2">Daily Tracker 🏝️</h1>
+       <p className="text-center text-gray-500 mb-6">
+        {new Date().toLocaleDateString("fr-FR")}</p>
+
+       <div className="bg-yellow-100 rounded-2xl p-4 mb-4">
+        <div className ="flex justify-between mb-2">
+            <span className="font-semibold">
+                Clochettes 💰
+            </span>
+            <span>
+                {bells}
+            </span>
+        </div>
+        <div className ="flex justify-between mb-2">
+            <span className="font-semibold">Série 🔥</span>
+            <span>{streak} jours</span>
+        </div>
+
+        <div className ="flex justify-between">
+            <span className="font-semibold">Météo ⛅</span>
+            <span>{weather}</span>
+        </div>
+       </div>
+
+<div className="space-y-3">
+    {tasks.map((task)=>(
+        <button key={task.id} onClick={()=>toggleTasks(tasks.id)}
+        className={`w-full p-4 rounded-2xl text-left transition-all duration-300 border-2 ${task.done ? "bg-lightblue-100 border-lightblue-400 line-through text-gray-500"
+            : "bg-gray-50 border-gray-200 hover:bg-lightblue-50"
+        }`}>
+            {task.done? "✅" : "⬜"}{task.text}
+        </button>
+    ))}
+</div>
+<div className="mt-6 text-center">
+<p className="text-lg font-semibold">
+    ⭐ {completedTasks}/{tasks.length} tâches terminées
+</p>
+
+{completedTasks === tasks.length && (
+    <div className="mt-4 animate-bounce text-2xl">🎆 Journée terminée !</div>
+)}
+</div>
+</div>
+</div>
+</section>
+)
+}
