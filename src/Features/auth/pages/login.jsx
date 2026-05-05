@@ -1,4 +1,4 @@
-import { loginForm } from "../LoginForm";
+import { LoginForm } from "../LoginForm";
 
 export const Login = () =>{
     return(
@@ -9,7 +9,7 @@ export const Login = () =>{
             </h1>
         </section>
         <section className="flex flex-col px-12 gap-4 pb-12">
-            <loginForm/>
+            <LoginForm/>
         </section>
         </>
     )

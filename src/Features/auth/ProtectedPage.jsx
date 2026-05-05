@@ -6,7 +6,7 @@ export function ProtectedPage({children}){
     const isConnect = useAtomValue(isConnectAtom);
 
     if(!isConnect){
-        return <Navigate to='auth/login' replace/>
+        return <Navigate to='/auth/login' replace/>
     }
 
     return children;

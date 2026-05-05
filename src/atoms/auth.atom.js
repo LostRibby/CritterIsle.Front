@@ -1,7 +1,8 @@
-import {atom} from 'jotai'; 
+import { atom } from 'jotai';
 
-export const tokenAtom = atom(null); 
+export const tokenAtom = atom(null);
 
-export const isConnectAtom = atom((get)=>{
-    const token = get(tokenAtom); 
-    return token !== null});
+export const isConnectedAtom = atom((get) => {
+  const token = get(tokenAtom);
+  return Boolean(token);
+});

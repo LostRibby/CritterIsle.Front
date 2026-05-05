@@ -5,7 +5,7 @@ export function BtnLogout() {
 
     const setToken = useSetAtom(tokenAtom); 
 
-    const handleLogout = () =>{
+    const handleLogout = () => {
         setToken(null); 
     }
 
