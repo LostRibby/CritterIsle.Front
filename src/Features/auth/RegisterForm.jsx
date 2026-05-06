@@ -3,13 +3,13 @@ import authService from "../../Services/auth.services";
 import { useNavigate } from "react-router";
 
 export function RegisterForm() {
-    const id = useid();
+    const id = useId();
     const navigate = useNavigate();
 
-    const handleRegisterSubmit = async (formdata) => {
-        console.log('FormData', formdata);
+    const handleRegisterSubmit = async (formData) => {
+        console.log('FormData', formData);
 
-        const data = Object.fromEntries(formdata.entries());
+        const data = Object.fromEntries(formData.entries());
         console.log('Data', data);
 
         await authService.register(data);

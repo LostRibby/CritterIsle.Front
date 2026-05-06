@@ -1,7 +1,7 @@
 import App from "./App";
 import { ProtectedPage } from "./Features/auth/ProtectedPage";
-import { Login } from "./Features/auth/pages/login";
-import { Register } from "./Features/auth/pages/register";
+import { Login } from "./Features/auth/pages/Login";
+import { Register } from "./Features/auth/pages/Register";
 import {Home } from "./layout/pages/Home";
 import TasksHome from "./Features/tasks/tasks";
 import { NotFound } from "./layout/pages/NotFound";
@@ -19,11 +19,7 @@ export const routes = [
                 index: true,
                 element: < Home/>
             },
-            {
-                path: 'tasks',
-                element: <ProtectedPage><TasksHome /></ProtectedPage>
-            },
-            {
+             {
                 path: 'auth',
                 children: [
                     {
@@ -36,6 +32,11 @@ export const routes = [
                     },
                 ]
             },
+            {
+                path: 'tasks',
+                element: <ProtectedPage><TasksHome /></ProtectedPage>
+            },
+           
             {
                 path: '*',
                 element: <NotFound />

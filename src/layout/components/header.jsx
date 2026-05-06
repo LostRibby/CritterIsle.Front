@@ -1,10 +1,10 @@
 import { useAtomValue } from "jotai";
 import { NavLink } from "react-router";
-import { isConnectAtom } from "../../atoms/auth.atom";
+import { isConnectedAtom } from "../../atoms/auth.atom";
 import { BtnLogout } from "../../Features/auth/Btnlogout";
 
 export const Header = () => {
-    const isConnect = useAtomValue(isConnectAtom);
+    const isConnect = useAtomValue(isConnectedAtom);
 
     return (
         <header className="flex justify-between items-center py-4 px-8 bg-secondary-200">

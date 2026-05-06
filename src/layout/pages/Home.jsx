@@ -1,6 +1,6 @@
-import { Navigate } from "react-router"
 
 export const Home =()=>{
+   
     return(
     <>
     <section className="py-12 px-44 flex flex-col gap-4 items-start text-main-800">
