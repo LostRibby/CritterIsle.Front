@@ -92,7 +92,7 @@ export default function BtnInsectes() {
                     data.map((item) => (
                         <div key={item._id}>
                             <h3>{item.name}</h3> 
-                            <img src={`http://localhost:3000${item.image}`} alt={item.name}/>
+                            <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name}/>
                         </div>
                     ))
                 )}
