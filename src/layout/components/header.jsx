@@ -29,7 +29,7 @@ export const Header = () => {
                     <NavLink to="/game" className='whitespace-nowrap'>Jeu</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/faq" className='whitespace-nowrap'>Faq</NavLink>
+                    <NavLink to="/encyclopedie" className='whitespace-nowrap'>Encyclopédie</NavLink>
                 </li>
                 <li>
                     <NavLink to="/about" className='whitespace-nowrap'>A propos</NavLink>

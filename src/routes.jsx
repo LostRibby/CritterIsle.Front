@@ -5,6 +5,7 @@ import { Register } from "./Features/auth/pages/Register";
 import {Home } from "./layout/pages/Home";
 import TasksHome from "./Features/tasks/tasks";
 import { NotFound } from "./layout/pages/NotFound";
+import { Encyclopedia } from "./Features/Encyclopedia/page/EncyclopediaHome";
 
 
 /**
@@ -35,6 +36,10 @@ export const routes = [
             {
                 path: 'tasks',
                 element: <ProtectedPage><TasksHome /></ProtectedPage>
+            },
+             {
+                path: 'encyclopedie',
+                element: <ProtectedPage><Encyclopedia /></ProtectedPage>,
             },
            
             {
