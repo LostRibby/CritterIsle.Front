@@ -16,7 +16,7 @@ export function LoginForm(){
 
         setToken(token);
 
-        navigate('/'); 
+        navigate('/tasks'); 
     }; 
 
     return(

@@ -39,7 +39,7 @@ export const routes = [
             },
              {
                 path: 'encyclopedie',
-                element: <ProtectedPage><Encyclopedia /></ProtectedPage>,
+                element: <Encyclopedia />,
             },
            
             {

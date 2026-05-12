@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import axios from "axios";
 const defaultTasks = [
     {
         id: 1,
@@ -71,10 +71,63 @@ export default function TasksHome() {
     });
 
     useEffect(() => {
+
+    const loadData = async () => {
+
+        const token = localStorage.getItem("token");
+
+        const res = await axios.get("http://localhost:3000/api/auth/me", {
+            headers: {
+                authorization: token
+            }
+        });
+
+        const data = await res.data;
+
+        setBells(data.bells);
+        setStreak(data.streak);
+    };
+
+    loadData();
+
+}, []);
+
+useEffect(() => {
+
+    const saveData = async () => {
+
+        const token = localStorage.getItem("token");
+
+        await axios.put("http://localhost:3000/api/auth/save", {
+            bells,
+            streak
+        }, {
+            headers: {
+                "Content-Type": "application/json",
+                authorization: token
+            }
+        });
+    };
+
+    saveData();
+}, [bells, streak]);
+
+    useEffect(() => {
         localStorage.setItem("tasks-ACNH", JSON.stringify(tasks));
         localStorage.setItem("bells-ACNH", JSON.stringify(bells));
         localStorage.setItem("streak-ACNH", JSON.stringify(streak));
-    })
+    }, [tasks, bells, streak]);
+
+    useEffect(() => {
+        const today = new Date().toDateString();
+        const lastVisit = localStorage.getItem("lastVisit-ACNH");
+        if (lastVisit !== today) {
+            setTasks(defaultTasks);
+            setBells(0);
+            setStreak((prevStreak) => prevStreak + 1);
+            localStorage.setItem("lastVisit", today);
+        }
+    }, []);
 
     const toggleTasks = (id) => {
         console.log('toggletasks', id)

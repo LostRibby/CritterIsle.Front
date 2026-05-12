@@ -11,21 +11,21 @@ export function RegisterForm() {
 
         const data = Object.fromEntries(formData.entries());
         console.log('Data', data);
-
+        
         await authService.register(data);
 
-        navigate('/');
+        navigate('/login');
     }
 
     return (
         <form action={handleRegisterSubmit} className="flex flex-col gap-2">
-            <div classname="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-2 items-center">
                 <label htmlFor={id + 'firstname'} className="label-form">Prénom :</label>
                 <input id={id + 'firstname'} type="text" className='input-form' name="firstname" />
             </div>
-            <div classname="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-2 items-center">
                 <label htmlFor={id + 'lastname'} className="label-form">Nom :</label>
-                <input id={id + 'lastname'} type="text" className='input-form' name="firstname" />
+                <input id={id + 'lastname'} type="text" className='input-form' name="lastname" />
             </div>
             <div className="flex flex-row gap-2 items-center">
                 <label htmlFor={id + 'email'} className="label-form">Email :</label>
@@ -33,7 +33,7 @@ export function RegisterForm() {
             </div>
             <div className='flex flex-rox gap-2 items-center'>
                 <label htmlFor={id+'password'} className='label-form'>Mot de passe secret :</label>
-                <input id={id+'password'} className="input-form" type="password"/>
+                <input id={id+'password'} className="input-form" type="password" name="password"/>
             </div>
             <div>
                 <button type='submit' className='btn'>Déménager sur l'île 🏝️</button>

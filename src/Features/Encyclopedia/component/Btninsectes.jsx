@@ -24,8 +24,9 @@ export default function BtnInsectes() {
 
     return (
         <div >
-            <h1>Filtrer les Insectes</h1>
-            <div>
+            <h1>Filtrer les insectes</h1>
+            <div className="btn-group gap-2">
+            <div className="btn-group-encyclopedia">
                 <button className="btn" onClick={() => {
                     handleFilterClick("season","hiver");
                 }}>
@@ -51,48 +52,54 @@ export default function BtnInsectes() {
                 </button>
             </div>
 
-            <div>
-                <button className="btn" onClick={() => {
+            <div className="btn-group-encyclopedia">
+                <button className="btn-2" onClick={() => {
                     handleFilterClick("location","arbres");
                 }}>
                     arbres
                 </button>
-                <button className="btn" onClick={() => {
+                <button className="btn-2" onClick={() => {
                     handleFilterClick("location","souches");
                 }}>
                     souches
                 </button>
-                <button className="btn" onClick={() => {
+                <button className="btn-2" onClick={() => {
                     handleFilterClick("location","air");
                 }}>
                     air
                 </button>
-                <button className="btn" onClick={() => {
+                <button className="btn-2" onClick={() => {
                     handleFilterClick("location","palmier");
                 }}>
                     palmier
                 </button>
-                <button className="btn" onClick={() => {
+                <button className="btn-2" onClick={() => {
                     handleFilterClick("location","fleurs");
                 }}>
                     fleurs
                 </button>
-                <button className="btn" onClick={() => {
+                <button className="btn-2" onClick={() => {
                     handleFilterClick("location","sol");
                 }}>
                     sol
                 </button>
             </div>
+</div>
 
-
-            <div>
+            <div className="grid grid-cols-2 gap-4">
                 {data.length === 0 ? (
                     <p>Aucun résultat</p>
                 ) : (
                     data.map((item) => (
-                        <div key={item._id}>
-                            <h3>{item.name}</h3> 
+                    <div key={item._id} className="outline-2 outline-orange-200 p-2 m-2 rounded-lg">
+                            <h2>{item.name}</h2> 
                             <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name}/>
+                            <h3>Prix :</h3>
+                            <p>{item.price}</p>
+                            <h3>Jeu de mots :</h3>
+                            <p>{item.jdm}</p>
+                            <h3>Description de Thibou :</h3>
+                            <p>{item.description}</p>
                         </div>
                     ))
                 )}
