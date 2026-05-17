@@ -1,8 +1,11 @@
 import { atom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 
-export const tokenAtom = atom(null);
+export const tokenAtom = atomWithStorage(
+  "token", 
+  null
+);
 
 export const isConnectedAtom = atom((get) => {
-  const token = get(tokenAtom);
-  return Boolean(token);
+  return Boolean(get(tokenAtom));
 });

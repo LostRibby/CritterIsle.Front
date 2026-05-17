@@ -21,12 +21,7 @@ export const Header = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='tasks' className="whitespace-nowrap">
-                        Tâches
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/game" className='whitespace-nowrap'>Jeu</NavLink>
+                    <NavLink to="/game" className='whitespace-nowrap'>Jeux</NavLink>
                 </li>
                 <li>
                     <NavLink to="/encyclopedie" className='whitespace-nowrap'>Encyclopédie</NavLink>

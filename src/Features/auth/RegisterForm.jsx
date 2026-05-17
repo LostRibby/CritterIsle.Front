@@ -1,6 +1,6 @@
 import { useId } from "react";
 import authService from "../../Services/auth.services";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export function RegisterForm() {
     const id = useId();
@@ -14,7 +14,7 @@ export function RegisterForm() {
         
         await authService.register(data);
 
-        navigate('/login');
+        navigate('/');
     }
 
     return (
@@ -31,7 +31,7 @@ export function RegisterForm() {
                 <label htmlFor={id + 'email'} className="label-form">Email :</label>
                 <input id={id + 'email'} type="email" className="input-form" name="email" />
             </div>
-            <div className='flex flex-rox gap-2 items-center'>
+            <div className='flex flex-row gap-2 items-center'>
                 <label htmlFor={id+'password'} className='label-form'>Mot de passe secret :</label>
                 <input id={id+'password'} className="input-form" type="password" name="password"/>
             </div>

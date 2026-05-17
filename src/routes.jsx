@@ -3,9 +3,11 @@ import { ProtectedPage } from "./Features/auth/ProtectedPage";
 import { Login } from "./Features/auth/pages/Login";
 import { Register } from "./Features/auth/pages/Register";
 import {Home } from "./layout/pages/Home";
-import TasksHome from "./Features/tasks/tasks";
+import TasksHome from "./Features/game/tasks";
 import { NotFound } from "./layout/pages/NotFound";
 import { Encyclopedia } from "./Features/Encyclopedia/page/EncyclopediaHome";
+import FishingGame from "./Features/game/fishingGame";
+import { GameHome } from "./Features/game/GameHome";
 
 
 /**
@@ -34,14 +36,25 @@ export const routes = [
                 ]
             },
             {
+                path: 'game',
+                element: <ProtectedPage><GameHome/></ProtectedPage>,
+        children: [
+            {
                 path: 'tasks',
-                element: <ProtectedPage><TasksHome /></ProtectedPage>
+                element: <TasksHome />
             },
-             {
+            
+            {
+                path: 'fishingGame', 
+                element:<FishingGame />
+            },
+        ]
+        },
+
+            {
                 path: 'encyclopedie',
                 element: <Encyclopedia />,
             },
-           
             {
                 path: '*',
                 element: <NotFound />

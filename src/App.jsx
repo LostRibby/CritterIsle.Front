@@ -1,6 +1,7 @@
 import { Outlet } from "react-router"; 
 import { Footer } from "./layout/components/footer"; 
 import { Header } from "./layout/components/header"; 
+import { ProtectedPage } from "./Features/auth/ProtectedPage";
 
 function App() {
  
@@ -9,7 +10,7 @@ function App() {
     <>
 <Header/>
 <main>
-  <Outlet/>
+ <Outlet/>
 </main>
 
 <Footer/>

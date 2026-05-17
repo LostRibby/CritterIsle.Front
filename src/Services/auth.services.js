@@ -9,7 +9,7 @@ const authService = {
     }, 
     login: async({email, password}) => {
         const response = await axios.post('http://localhost:3000/api/auth/login', {email, password}); 
-        return response.data.token
+        return response.data
     }
     
 }; 
