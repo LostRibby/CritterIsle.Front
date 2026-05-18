@@ -33,7 +33,7 @@ export const Header = () => {
                 <ul>
                     <li>
                         {isConnect ? (
-                            <NavLink className="btn" to="auth/login"><span>Créér une maison</span></NavLink>
+                            <NavLink className="btn" to="auth/login"><span>Se connecter 🏝️</span></NavLink>
                         ):(
                             <BtnLogout/>
                         )}

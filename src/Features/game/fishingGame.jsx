@@ -141,13 +141,13 @@ export default function FishingGame() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-cyan-300 to-blue-700 flex items-center justify-center p-6 text-white font-sans">
+        <div className="min-h-screen bg-gradient-to-b from-cyan-100 to-blue-400 flex items-center justify-center p-6 text-white font-sans">
             <div className="w-full max-w-3xl bg-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20">
-                <h1 className="text-5xl font-bold text-center mb-6">
+                <h1 className="text-5xl font-bold text-center mb-6 text-froly-400">
                     🎣 Jeu de Pêche
                 </h1>
 
-                <div className="flex justify-between text-xl mb-4">
+                <div className="flex justify-between text-xl mb-4 text-froly-400 font-semibold">
                     <span>🏆 Score : {score}</span>
                     <span>⏳ Temps : {timeLeft}s</span>
                 </div>
@@ -166,43 +166,38 @@ export default function FishingGame() {
                                 top: `${fish.top}%`,
                             }}
                         >
-                           🐟
+                            🐟
                         </button>
                     ))}
                 </div>
                 <div className="text-xl mb-4 text-center font-semibold min-h-[30px]">
-                    <p className="mt-6 flex flex-col items-center gap-4">{message}</p>
-                </div>
-
-                <div className="mt-6 text-center text-xl font-semibold min-h-[40px]">
-                    {message}
+                    <p className="mt-6 flex flex-col items-center gap-4 text-froly-400">
+                        {message}
+                    </p>
                 </div>
 
                 <div className="mt-6 flex flex-col items-center gap-4">
-                    <p className="text-center opacity-90">
+                    <p className="text-center opacity-90 text-froly-400">
                         Attrape les poissons avant qu'ils disparaissent.
                     </p>
-
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center text-sm">
+                    {gameOver && (
+                        <button
+                            onClick={restartGame}
+                            className="bg-froly-300 hover:bg-froly-400 text-black font-bold px-8 py-3 rounded-2xl shadow-lg transition-all"
+                        >
+                            Rejouer
+                        </button>
+                    )}
+                    <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center text-sm text-froly-600">
                         {fishTypes.map((fish, index) => (
-                            <div
-                                key={index}
-                                className="bg-white/10 rounded-2xl p-3 border border-white/10"
-                            >
+                            <div key={index} className="bg-blue-500/10 rounded-2xl p-3 border border-white/10">
                                 <img src={`/images/${fish.image}`} alt={fish.name} />
                                 <div>{fish.points} pts</div>
                             </div>
                         ))}
                     </div>
 
-                    {gameOver && (
-                        <button
-                            onClick={restartGame}
-                            className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-8 py-3 rounded-2xl shadow-lg transition-all"
-                        >
-                             Rejouer
-                        </button>
-                    )}
+
                 </div>
             </div>
         </div>

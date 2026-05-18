@@ -46,5 +46,5 @@ header {
   @apply font-medium ;
 }
 .input-form{
-  @apply border p-1 focus:outline-2 ; 
+  @apply border p-1 focus:outline-2 rounded-lg; 
 }

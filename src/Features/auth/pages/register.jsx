@@ -2,9 +2,9 @@ import { RegisterForm } from '../RegisterForm'
 
 export const Register = () => {
     return (
-        <>
-            <section className="py-6 px-12 flex items-center gap-6">
-                <h1 className="text-3xl text-main-800 font-chewy">
+        <div className="bg-froly-50 min-h-screen flex flex-col">
+            <section className="py-6 px-12 flex items-center gap-6 flex-col ">
+                <h1 className="flex text-3xl text-main-800 justify-center items-center">
                     Créer un compte
                 </h1>
             </section>
@@ -12,6 +12,6 @@ export const Register = () => {
             <section className="flex flex-col px-12 gap-4 pb-12">
                 <RegisterForm />
             </section>
-        </>
+        </div>
     )
 }

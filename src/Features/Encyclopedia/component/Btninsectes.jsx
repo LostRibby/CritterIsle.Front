@@ -23,8 +23,9 @@ export default function BtnInsectes() {
     console.log("DATA:", data)
 
     return (
-        <div >
+        <div className="flex flex-col gap-2">
             <h1>Filtrer les insectes</h1>
+            
             <div className="btn-group gap-2">
             <div className="btn-group-encyclopedia">
                 <button className="btn" onClick={() => {
@@ -69,6 +70,11 @@ export default function BtnInsectes() {
                     air
                 </button>
                 <button className="btn-2" onClick={() => {
+                    handleFilterClick("location","eau");
+                }}>
+                    eau
+                </button>
+                <button className="btn-2" onClick={() => {
                     handleFilterClick("location","palmier");
                 }}>
                     palmier
@@ -84,6 +90,7 @@ export default function BtnInsectes() {
                     sol
                 </button>
             </div>
+            
 </div>
 
             <div className="grid grid-cols-2 gap-4">
