@@ -7,9 +7,9 @@ export const Header = () => {
     const isConnect = useAtomValue(isConnectedAtom);
 
     return (
-        <header className="flex justify-between items-center py-4 px-8 bg-secondary-200">
+        <header className="flex justify-between items-center py-4 px-8 bg-teal-50">
             <div className="items-center gap-4 hidden lg:flex">
-                <p className="text-secondary-50 text-2xl uppercase font-bold font-chewy tracking-widest">
+                <p className="text-secondary-50 text-2xl font-bold font-agbalumo">
                     Critter<span className="text-main-300">Isle</span>
                 </p>
             </div>
@@ -33,10 +33,7 @@ export const Header = () => {
                 <ul>
                     <li>
                         {isConnect ? (
-                            <div className="btn-grp">
-                            <NavLink><span>Créér une maison</span></NavLink>
-                            <NavLink className="btn flex flex-row gap-0.5" to="auth/login"><span>Sortir de sa maison</span> </NavLink>
-                            </div>
+                            <NavLink className="btn" to="auth/login"><span>Créér une maison</span></NavLink>
                         ):(
                             <BtnLogout/>
                         )}

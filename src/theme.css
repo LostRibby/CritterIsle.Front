@@ -1,15 +1,16 @@
 @font-face {
-    font-family: 'Poppins';
-    src: url("/fonts/Poppins-Regular.ttf") format('truetype'); 
+    font-family: 'Agbalumo';
+    src: url("/font/Agbalumo-Regular.ttf") format('truetype'); 
 }
 @font-face {
-    font-family: 'Chewy';
-    src: url("/fonts/Chewy-Regular.ttf") format('truetupe');
+    font-family: 'Poppins';
+    src: url("/font/Poppins-Regular.ttf") format('truetype');
 }
+
 @theme{
 
+    --font-agbalumo : 'Agbalumo'; 
     --font-poppins : 'Poppins'; 
-    --font-chewy : 'Chewy'; 
 
 /*couleurs principale*/
 --color-froly-50: #fef2f3;

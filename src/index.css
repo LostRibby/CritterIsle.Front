@@ -28,6 +28,12 @@ header {
 .btn-2{
   @apply bg-secundary-600 text-secundary-50 py-2 px-4 rounded-lg no-underline outline-2 outline-transparent hover:outline-froly-800 hover:bg-froly-100 hover:text-secundary-800; 
 }
+.btn-tasks{
+  @apply bg-rose-200 text-rose-800 py-2 px-4 rounded-lg no-underline outline-2 outline-transparent hover:outline-rose-800 hover:bg-rose-100 hover:text-rose-800;
+}
+.btn-fishing{
+  @apply bg-blue-300 text-blue-800 py-2 px-4 rounded-lg no-underline outline-2 outline-transparent hover:outline-blue-800 hover:bg-blue-100 hover:text-blue-800;
+}
 .btn-group{
   @apply flex flex-row; 
 }

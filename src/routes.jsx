@@ -41,7 +41,7 @@ export const routes = [
         children: [
             {
                 path: 'tasks',
-                element: <TasksHome />
+                element: <TasksHome /> 
             },
             
             {
