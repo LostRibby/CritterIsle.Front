@@ -34,6 +34,13 @@ header {
 .btn-fishing{
   @apply bg-blue-300 text-blue-800 py-2 px-4 rounded-lg no-underline outline-2 outline-transparent hover:outline-blue-800 hover:bg-blue-100 hover:text-blue-800;
 }
+
+.btn-active{
+  @apply bg-cyan-300 text-cyan-800 py-2 px-4 rounded-lg no-underline outline-2 outline-transparent hover:outline-cyan-800 hover:bg-cyan-100 hover:text-cyan-800;
+}
+.btn-active-2{
+  @apply bg-purple-300 text-purple-800 py-2 px-4 rounded-lg no-underline outline-2 outline-transparent hover:outline-purple-800 hover:bg-purple-100 hover:text-purple-800;
+}
 .btn-group{
   @apply flex flex-row; 
 }
