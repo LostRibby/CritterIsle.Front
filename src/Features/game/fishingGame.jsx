@@ -116,7 +116,7 @@ export default function FishingGame() {
         saveScore(updatedScore);
 
         setMessage(
-            `${fish.image} ${fish.name} attrapé ! +${fish.points} points !`
+            `${fish.name} attrapé ! +${fish.points} points !`
         );
 
         setFishes((prev) =>
@@ -166,7 +166,7 @@ export default function FishingGame() {
                                 top: `${fish.top}%`,
                             }}
                         >
-                            🐟
+                        <img src={`/images/${fish.image}`} alt={fish.name} />
                         </button>
                     ))}
                 </div>
