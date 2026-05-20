@@ -1,22 +1,26 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useSearchParams } from "react-router";
 
 export default function BtnDSC() {
     const [active, setActive] = useState("");
-    const [filters, setFilter] = useState({
-        season: "",
-        speed: ""
-    });
+    const [filters, setFilter] = useSearchParams();
 
     const [data, setData] = useState([]);
 
     const handleFilterClick = (type, value) => {
-        setFilter((prev) => ({
-            ...prev,
-            [type]: prev[type] === value ? "" : value,
-        }));
-    };
+        setFilter((prev) => {
+            const params = new URLSearchParams(prev);
 
+            if (params.get(type) === value) {
+                params.delete(type);
+            } else {
+                params.set(type, value);
+            }
+
+            return params;
+        });
+    };
     useEffect(() => {
         axios.get(`http://localhost:3000/api/Creatures`, { params: filters })
             .then((res) => setData(res.data.data));
@@ -24,7 +28,7 @@ export default function BtnDSC() {
     console.log("DATA:", data);
 
     return (
-        <div className="flex flex-col gap-2 justify-center items-center">
+        <div className="flex flex-col gap-2 justify-center items-center bg">
             <h2 className=" font-bold">Filtrer les créatures marines</h2>
 
             <div className="btn-group-encyclopedia mb-4">
@@ -97,15 +101,22 @@ export default function BtnDSC() {
                     <p>Aucun résultat</p>
                 ) : (
                     data.map((item) => (
-                        <div key={item._id} className="outline-2 outline-orange-200 p-2 m-2 rounded-lg">
-                            <h2>{item.name}</h2>
-                            <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
-                            <h3>Prix :</h3>
-                            <p>{item.price}</p>
-                            <h3>Jeu de mots :</h3>
-                            <p>{item.jdm}</p>
-                            <h3>Description de Thibou :</h3>
-                            <p>{item.description}</p>
+                        <div key={item._id} className=" bg-blue-950 inset-shadow-m inset-shadow-froly-700 p-2 m-2 rounded-lg">
+
+                            <h2 className="text-2xl justify-center flex items-center text-froly-200 underline font-agbalumo" >{item.name}</h2>
+                            <div className="m-4 justify-center flex items-center">
+                                <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
+                            </div>
+                            <div classNmae="flex flex-row">
+                                <h3 className="text-froly-500 font-bold text-xl">💰 Prix :</h3>
+                                <p className="text-white"><span className="text-amber-500 font-bold">{item.price}</span> clochettes</p>
+                            </div>
+
+                            <h3 className="text-froly-500 font-bold text-xl">😹 Jeu de mots :</h3>
+                            <p className="text-white">{item.jdm}</p>
+
+                            <h3 className="text-froly-500 font-bold text-xl underline ">🦉 Description de Thibou :</h3>
+                            <p className="text-white">{item.description}</p>
                         </div>
                     ))
                 )}

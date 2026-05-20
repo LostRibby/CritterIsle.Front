@@ -2,13 +2,15 @@ import { useAtomValue } from "jotai";
 import { NavLink } from "react-router";
 import { isConnectedAtom } from "../../atoms/auth.atom";
 import { BtnLogout } from "../../Features/auth/Btnlogout";
-
+import logo from "../../../public/images/island.svg"
+import { useNavigate } from "react-router";
 export const Header = () => {
     const isConnect = useAtomValue(isConnectedAtom);
-
+    const navigate = useNavigate()
     return (
         <header className="flex justify-between items-center py-4 px-8 bg-teal-50">
             <div className="items-center gap-4 hidden lg:flex">
+                <button onClick={()=> navigate('/')}><img src={logo} alt="logo de CritterIsle" className="h-12"/></button>
                 <p className="text-secondary-50 text-2xl font-bold font-agbalumo">
                     Critter<span className="text-main-300">Isle</span>
                 </p>

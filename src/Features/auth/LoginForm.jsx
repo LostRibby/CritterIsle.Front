@@ -1,8 +1,9 @@
 import { useId } from "react";
-import authService from "../../Services/auth.services";
+import userService from "../../Services/user.service";
 import { useNavigate } from 'react-router-dom';
 import { useSetAtom } from "jotai";
 import { tokenAtom } from "../../atoms/auth.atom";
+import authService from "../../Services/auth.services";
 
 export function LoginForm() {
 
@@ -10,14 +11,18 @@ export function LoginForm() {
     const navigate = useNavigate();
     const setToken = useSetAtom(tokenAtom);
 
-    const handleLoginSubmit = async (formData) => {
-        const data = Object.fromEntries(formData.entries());
-        const token = await authService.login(data);
+   
 
+    const handleLoginSubmit = async (formData) => {
+
+        const data = Object.fromEntries(formData.entries());
+
+        const res = await authService.login(data)
+        const token = res.token;
         localStorage.setItem('token', token);
-      
+
         setToken(token);
-        
+
         navigate('/game');
     };
 

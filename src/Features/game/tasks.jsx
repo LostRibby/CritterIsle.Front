@@ -72,45 +72,52 @@ export default function TasksHome() {
 
     useEffect(() => {
 
-    const loadData = async () => {
+        const loadData = async () => {
+            try {
 
-        const token = localStorage.getItem("token");
 
-        const res = await axios.get("http://localhost:3000/api/auth/me", {
-            headers: {
-                authorization: token
+                const token = localStorage.getItem("token");
+                if (!token) return
+                const res = await axios.get("http://localhost:3000/api/auth/me", {
+                    headers: {
+                        authorization: token
+                    }
+                });
+
+                const data = await res.data;
+
+                setBells(data.bells);
+                setStreak(data.streak);
+            } catch (err) {
+                console.error(err);
             }
-        });
+        };
 
-        const data = await res.data;
+        loadData();
 
-        setBells(data.bells);
-        setStreak(data.streak);
-    };
+    }, []);
 
-    loadData();
+    useEffect(() => {
 
-}, []);
+        const saveData = async () => {
 
-useEffect(() => {
+            const token = localStorage.getItem("token");
 
-    const saveData = async () => {
 
-        const token = localStorage.getItem("token");
+            await axios.put("http://localhost:3000/api/auth/save", {
+                bells,
+                streak
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: token
+                }
+            });
 
-        await axios.put("http://localhost:3000/api/auth/save", {
-            bells,
-            streak
-        }, {
-            headers: {
-                "Content-Type": "application/json",
-                authorization: token
-            }
-        });
-    };
+        };
 
-    saveData();
-}, [bells, streak]);
+        saveData();
+    }, [bells, streak]);
 
     useEffect(() => {
         localStorage.setItem("tasks-ACNH", JSON.stringify(tasks));
@@ -123,30 +130,32 @@ useEffect(() => {
         const lastVisit = localStorage.getItem("lastVisit-ACNH");
         if (lastVisit !== today) {
             setTasks(defaultTasks);
-            setBells(0);
             setStreak((prevStreak) => prevStreak + 1);
-            localStorage.setItem("lastVisit", today);
+            localStorage.setItem("lastVisit-ACNH", today);
         }
     }, []);
 
-    const toggleTasks = (id) => {
-        console.log('toggletasks', id)
-        setTasks((prev) =>
-            prev.map((task) => {
-                if (task.id === id) {
-                    const updated = { ...task, done: !task.done };
+const toggleTasks = (id) => {
+    setTasks((prev) => {
+        return prev.map((task) => {
+            if (task.id === id) {
 
-                    if (!task.done) {
-                        setBells((b) => b + 500);
-                    } else {
-                        setBells((b) => Math.max(0, b - 500));
-                    }
-                    return updated;
-                }
-                return task;
-            })
-        );
-    };
+                const newDone = !task.done;
+
+                setBells((b) =>
+                    newDone ? b + 500 : Math.max(0, b - 500)
+                );
+
+                return {
+                    ...task,
+                    done: newDone
+                };
+            }
+
+            return task;
+        });
+    });
+};
     const completedTasks = tasks.filter((t) => t.done).length;
 
     const weatherList = ["☀️Soleil", "🌧️Pluie", "☁️Nuageux", "☃️Neigeux", "🌈Arc-en-Ciel"];
@@ -154,7 +163,7 @@ useEffect(() => {
 
     return (
         <section>
-            <div className="bg-orange-100 min-h-screen bg-lineart-to-b from-coral-200 to-coral-400 flex items-center justify-center p-6">
+            <div className="bg-orange-100 min-h-screen bg-lineart-to-b from-coral-200 to-coral-400 flex items-center justify-center p-6 rounded-lg">
                 <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md">
                     <h1 className=" font-bold text-center mb-2">Daily Tracker 🏝️</h1>
                     <p className="text-center text-gray-500 mb-6">
@@ -186,8 +195,8 @@ useEffect(() => {
                                 key={task.id}
                                 onClick={() => toggleTasks(task.id)}
                                 className={`w-full p-4 rounded-2xl text-left transition-all duration-300 border-2 ${task.done
-                                        ? "bg-blue-100 border-blue-400 line-through text-gray-500"
-                                        : "bg-gray-50 border-gray-200 hover:bg-green-50"
+                                    ? "bg-blue-100 border-blue-400 line-through text-gray-500"
+                                    : "bg-gray-50 border-gray-200 hover:bg-green-50"
                                     }`}>
                                 {task.done ? "✅" : "⬜"}{task.text}
                             </button>
