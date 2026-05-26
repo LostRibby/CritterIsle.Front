@@ -3,9 +3,9 @@ import { isConnectedAtom } from "../../atoms/auth.atom";
 import { Navigate } from "react-router-dom";
 
 export function ProtectedPage({children}){
-    const isConnect = useAtomValue(isConnectedAtom);
+    const isConnected = useAtomValue(isConnectedAtom);
 
-    if(!isConnect){
+    if(!isConnected){
         return <Navigate to='/auth/login' replace/>
 
     }

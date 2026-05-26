@@ -7,11 +7,12 @@ export function BtnLogout() {
 
     const handleLogout = () => {
         setToken(null); 
+        localStorage.removeItem("token");
+        window.location.href = "/auth/login";
     }
 
     return(
         <button className='btn flex flex-row' onClick={handleLogout}>
-            <span >😴</span>
             <span className='whitespace-nowrap hidden lg:block'>Se déconnecter</span>
         </button>
     )

@@ -11,6 +11,7 @@ import { GameHome } from "./Features/game/GameHome";
 import BtnInsectes from "./Features/Encyclopedia/component/Btninsectes";
 import BtnPoissons from "./Features/Encyclopedia/component/BtnPoissons";
 import BtnDSC from "./Features/Encyclopedia/component/BtnDSC";
+import { Apropos } from "./Features/apropos/Apropos";
 
 /**
  * @type {import("react-router").RouteObject}
@@ -70,6 +71,10 @@ export const routes = [
                         element : <BtnDSC/>
                     }
                 ]
+            },
+            {
+                path: 'about',
+                element: <Apropos />
             },
             {
                 path: '*',

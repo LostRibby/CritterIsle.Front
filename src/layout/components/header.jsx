@@ -1,11 +1,13 @@
 import { useAtomValue } from "jotai";
 import { NavLink } from "react-router";
-import { isConnectedAtom } from "../../atoms/auth.atom";
+import {isConnectedAtom} from "../../atoms/auth.atom"
 import { BtnLogout } from "../../Features/auth/Btnlogout";
 import logo from "../../../public/images/island.svg"
 import { useNavigate } from "react-router";
+
 export const Header = () => {
-    const isConnect = useAtomValue(isConnectedAtom);
+
+    const isConnected = useAtomValue(isConnectedAtom);
     const navigate = useNavigate()
     return (
         <header className="flex justify-between items-center py-4 px-8 bg-teal-50">
@@ -34,8 +36,8 @@ export const Header = () => {
                 </ul>
                 <ul>
                     <li>
-                        {isConnect ? (
-                            <NavLink className="btn" to="auth/login"><span>Se connecter 🏝️</span></NavLink>
+                        {!isConnected ? (
+                            <NavLink className="btn" to="/auth/login"><span>Se connecter 🏝️</span></NavLink>
                         ):(
                             <BtnLogout/>
                         )}
