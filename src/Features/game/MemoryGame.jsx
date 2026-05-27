@@ -6,75 +6,96 @@ export default function MemoryGame() {
     const [flipped, setFlipped] = useState([]);
     const [matched, setMatched] = useState([]);
     const [disabled, setDisabled] = useState(false);
+    const [moves, setMoves] = useState(0);
+    const [gameOver, setGameOver] = useState(false);
 
+const isFlipped = (card) =>
+    flipped.some((c) => c.uniqueId === card.uniqueId) ||
+    matched.includes(card.id); 
+
+    
     useEffect(() => {
         fetchBugs();
     }, []);
 
     const fetchBugs = async () => {
         try {
-            const requests = [];
+            const response = await axios.get(
+                "http://localhost:3000/api/Bugs"
+            );
 
-            for (let id = 1; id <= 6; id++) {
-                requests.push(axios.get(`http://localhost:3000/api/Bugs/${id}`));
-            }
-
-            const results = await Promise.all(requests);
-            console.log("RESULTAT:", results)
-
-            const bugCards = results.map(res => ({
-                id: res.data.id, 
-                image: res.data.image,
-                name: res.data.name,
+            const bugCards = response.data.data.map(bug => ({
+                id: bug.id,
+                image: bug.image,
+                name: bug.name,
             }));
-            console.log("bugcard:", bugCards)
 
-            const duplicated = [...bugCards, ...bugCards]
+            console.log("Bug cards:", bugCards);
+
+            const selectedBugs = bugCards
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 6);
+
+
+            const duplicated = [...selectedBugs, ...selectedBugs]
                 .map((card, index) => ({
                     ...card,
-                    uniqueId: index,
+                    uniqueId: `${card.id}-${index}`,
                 }))
                 .sort(() => Math.random() - 0.5);
-            console.log("Duplicated:", duplicated)
 
             setCards(duplicated);
-        } catch (err) {
-            console.error("Failed to fetch bugs:", err);
+
+        } catch (error) {
+            console.error(error);
         }
-    };
+    }
 
     const handleFlip = (card) => {
-        if (disabled) return;
+        if (disabled || gameOver) return;
+
         if (flipped.find((c) => c.uniqueId === card.uniqueId)) return;
+        
         if (matched.includes(card.id)) return;
 
         const newFlipped = [...flipped, card];
         setFlipped(newFlipped);
 
-        if (newFlipped.length === 2) {
-            setDisabled(true);
+        if (newFlipped.length !== 2) return;
 
-            const [first, second] = newFlipped;
+        setDisabled(true);
 
-            if (first.id === second.id) {
-                setMatched((prev) => [...prev, first.id]);
+        setMoves((prev) => {
+            const newMoveCount = prev + 1;
+
+            if (newMoveCount >= 20) {
+                setGameOver(true);
+                setDisabled(true);
+            }
+
+            return newMoveCount;
+        });
+
+        const [first, second] = newFlipped;
+
+        if (first.id === second.id) {
+            setMatched((prev) => [...prev, first.id]);
+
+            setTimeout(() => {
                 setFlipped([]);
                 setDisabled(false);
-            } else {
-                setTimeout(() => {
-                    setFlipped([]);
-                    setDisabled(false);
-                }, 1000);
-            }
-        }
+            }, 300);
+        } 
+        
     };
+    
+return (
+    <div>
+        <div>
+            <p>Moves: {moves} / 20</p>
+        </div>
 
-    const isFlipped = (card) =>
-        flipped.some((c) => c.uniqueId === card.uniqueId) ||
-        matched.includes(card.id);
-
-    return (
-        <div className="grid grid-cols-4  p-4 h-screen justify-center aligns-center">
+        <div className="grid grid-cols-4 p-4 h-screen justify-center items-center">
             {cards.map((card) => (
                 <div
                     key={card.uniqueId}
@@ -93,5 +114,5 @@ export default function MemoryGame() {
                 </div>
             ))}
         </div>
-    )
-}
+    </div>
+);}

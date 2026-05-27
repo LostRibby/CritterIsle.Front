@@ -1,3 +1,4 @@
+import { NavLink } from "react-router"
 export const Footer = () =>{
     return(
         <footer className='bg-sky-200 py-4 px-8 flex justify-between items-center'>
@@ -14,7 +15,7 @@ export const Footer = () =>{
             </ul>
         </div>
         <div>
-            <a className="text-sky-600 transition-duration-100 hover:text-main-700 underline" href="">Conditions générales</a>
+            <NavLink to="/cgu" className="text-sky-600 transition-duration-100 hover:text-main-700 underline">Conditions générales</NavLink>
         </div>
         </footer>
     )

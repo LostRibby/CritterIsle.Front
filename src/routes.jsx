@@ -13,6 +13,7 @@ import BtnPoissons from "./Features/Encyclopedia/component/BtnPoissons";
 import BtnDSC from "./Features/Encyclopedia/component/BtnDSC";
 import { Apropos } from "./Features/apropos/Apropos";
 import MemoryGame from "./Features/game/MemoryGame";
+import { CGU } from "./Features/CGU/CGU";
 
 /**
  * @type {import("react-router").RouteObject}
@@ -80,6 +81,10 @@ export const routes = [
             {
                 path: 'about',
                 element: <Apropos />
+            },
+            {
+path: 'cgu', 
+element: <CGU/>
             },
             {
                 path: '*',
