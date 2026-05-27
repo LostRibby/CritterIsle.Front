@@ -1,7 +1,7 @@
 
 export const Apropos = () => {
     return (
-        <div className="text-center bg-froly-300 rounded-lg  m-4 p-8 ">
+        <div className="text-center bg-froly-300 rounded-lg  m-8 p-8 flex justify-center items-center flex-col">
             <h1 className="text-4xl font-bold font-froly-800 mb-4">À propos de ce projet</h1>
             <p className="text-md mb-2">
                 Ce projet à été réalisé dans le cadre du travail de fin d'étude (TFE)de Maëlle Baudot, en formation de fullstack JavaScript developer à l'interface3.

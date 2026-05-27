@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { tokenAtom } from "../../atoms/auth.atom";
+
 export default function FishingGame() {
     const [fishTypes, setFishTypes] = useState([]);
     const [fishes, setFishes] = useState([]);

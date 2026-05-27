@@ -19,6 +19,10 @@ export const GameHome = () => {
                 <button className="btn-tasks" onClick={() => navigate("/game/tasks", { replace: true })}>
                     Tâches
                 </button>
+
+                <button className="btn-tasks" onClick={() => navigate("/game/memoryGame", { replace: true })}>
+                    Memory game
+                </button>
             </div>
             <Outlet />
         </div>
