@@ -23,7 +23,7 @@ export default function MemoryGame() {
             console.log("RESULTAT:", results)
 
             const bugCards = results.map(res => ({
-                
+                id: res.data.id, 
                 image: res.data.image,
                 name: res.data.name,
             }));
