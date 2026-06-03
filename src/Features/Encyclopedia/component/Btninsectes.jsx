@@ -114,15 +114,15 @@ export default function BtnInsectes() {
                     <p>Aucun résultat</p>
                 ) : (
                     data.map((item) => (
-                        <div key={item._id} className=" bg-green-200 inset-shadow-m inset-shadow-froly-700 p-2 m-2 rounded-lg">
+                        <div key={item._id} className="bg-linear-to-b  from-green-200  to-green-300 shadow-lg outline-green-950 outline-1 p-2 m-2 rounded-lg">
 
                             <h2 className="text-2xl justify-center flex items-center text-froly-500 underline font-agbalumo" >{item.name}</h2>
                             <div className="m-4 justify-center flex items-center">
-                                <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
+                                <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} className="bg-white rounded-lg"/>
                             </div>
-                            <div classNmae="flex flex-row">
+                            <div className="flex flex-row  ">
                                 <h3 className="text-froly-800 font-bold text-xl">💰 Prix :</h3>
-                                <p ><span className="text-amber-500 font-bold">{item.price}</span> clochettes</p>
+                                <p className="text-xl"><span className="text-amber-500 font-bold">{item.price}</span> clochettes</p>
                             </div>
 
                             <h3 className="text-froly-800 font-bold text-xl">😹 Jeu de mots :</h3>

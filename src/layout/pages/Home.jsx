@@ -6,7 +6,7 @@ export const Home =()=>{
 
     return(
     <>
-    <section className=" flex flex-col gap-4 items-center justify-center text-main-700 h-screen bg-gradient-to-l from-[#38bdf8] via-[#fb7185] to-[#84cc16]">
+    <section className=" flex flex-col gap-4 items-center justify-center text-main-700 h-screen bg-gradient-to-l from-[#a4e0fa] via-[#f5909f] to-[#d1f0a3]">
         <img src={island} alt="île" />
 <h1  className='text-4xl'>
 Bienvenue sur <span className="text-coral-400 font-agbalumo">CritterIsle</span>

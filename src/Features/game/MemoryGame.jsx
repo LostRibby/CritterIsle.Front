@@ -65,7 +65,7 @@ export default function MemoryGame() {
 
         const [first, second] = newFlipped;
 
-        if (first.uniqueId === second.uniqueId) {
+        if (first.id === second.id) {
             setMatched((prev) => [...prev, first.id]);
             setFlipped([]);
             setDisabled(false);
@@ -87,30 +87,30 @@ export default function MemoryGame() {
     };
 
     return (
-        <div>
-            <div>
+        <div className="bg-cyan-950 text-white font-medium ml-20 mr-20 mb-10 p-14 rounded-lg">
+            <div className="m-5 flex items-center justify-center">
                 <p>Moves: {moves} / 20</p>
             </div>
-
-            <div className="grid grid-cols-4 p-4 h-screen justify-center items-center">
+<div className="flex items-center justify-center">
+            <div className="grid grid-cols-4 p-4 justify-center items-center">
                 {cards.map((card) => (
                     <div
                         key={card.uniqueId}
                         onClick={() => handleFlip(card)}
-                        className="w-40 h-40 bg-froly-600 flex items-center justify-center cursor-pointer"
+                        className="w-40 h-40 bg-cyan-200 flex items-center justify-center cursor-pointer rounded-lg m-1"
                     >
                         {isFlipped(card) ? (
                             <img
                                 src={`/images/${card.image}`}
                                 alt={card.name}
-                                className="w-full h-full"
+                                
                             />
                         ) : (
-                            "?"
+                            <p className= "bg-[url(/images/pattern-leaf.png)] w-40 h-40 rounded-lg" ></p>
                         )}
                     </div>
                 ))}
             </div>
-        </div>
+        </div></div>
     );
 }
