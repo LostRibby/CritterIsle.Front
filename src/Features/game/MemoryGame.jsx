@@ -9,11 +9,10 @@ export default function MemoryGame() {
     const [moves, setMoves] = useState(0);
     const [gameOver, setGameOver] = useState(false);
 
-const isFlipped = (card) =>
-    flipped.some((c) => c.uniqueId === card.uniqueId) ||
-    matched.includes(card.id); 
+    const isFlipped = (card) =>
+        flipped.some((c) => c.uniqueId === card.uniqueId) ||
+        matched.includes(card.id);
 
-    
     useEffect(() => {
         fetchBugs();
     }, []);
@@ -55,64 +54,63 @@ const isFlipped = (card) =>
         if (disabled || gameOver) return;
 
         if (flipped.find((c) => c.uniqueId === card.uniqueId)) return;
-        
+
         if (matched.includes(card.id)) return;
 
         const newFlipped = [...flipped, card];
         setFlipped(newFlipped);
 
         if (newFlipped.length !== 2) return;
-
         setDisabled(true);
 
+        const [first, second] = newFlipped;
+
+        if (first.uniqueId === second.uniqueId) {
+            setMatched((prev) => [...prev, first.id]);
+            setFlipped([]);
+            setDisabled(false);
+        } else {
+            setTimeout(() => {
+                setFlipped([]);
+                setDisabled(false);
+            }, 1000);
+        }
         setMoves((prev) => {
             const newMoveCount = prev + 1;
 
             if (newMoveCount >= 20) {
                 setGameOver(true);
-                setDisabled(true);
             }
-
             return newMoveCount;
         });
 
-        const [first, second] = newFlipped;
-
-        if (first.id === second.id) {
-            setMatched((prev) => [...prev, first.id]);
-
-            setTimeout(() => {
-                setFlipped([]);
-                setDisabled(false);
-            }, 300);
-        } 
-        
     };
-    
-return (
-    <div>
-        <div>
-            <p>Moves: {moves} / 20</p>
-        </div>
 
-        <div className="grid grid-cols-4 p-4 h-screen justify-center items-center">
-            {cards.map((card) => (
-                <div
-                    key={card.uniqueId}
-                    onClick={() => handleFlip(card)}
-                    className="w-40 h-40 bg-froly-600 flex items-center justify-center cursor-pointer"
-                >
-                    {isFlipped(card) ? (
-                        <img
-                            src={`/images/${card.image}`}
-                            alt={card.name}
-                            className="w-full h-full"
-                        />
-                    ) : (
-                        "?"
-                    )}
-                </div>
-            ))}
+    return (
+        <div>
+            <div>
+                <p>Moves: {moves} / 20</p>
+            </div>
+
+            <div className="grid grid-cols-4 p-4 h-screen justify-center items-center">
+                {cards.map((card) => (
+                    <div
+                        key={card.uniqueId}
+                        onClick={() => handleFlip(card)}
+                        className="w-40 h-40 bg-froly-600 flex items-center justify-center cursor-pointer"
+                    >
+                        {isFlipped(card) ? (
+                            <img
+                                src={`/images/${card.image}`}
+                                alt={card.name}
+                                className="w-full h-full"
+                            />
+                        ) : (
+                            "?"
+                        )}
+                    </div>
+                ))}
+            </div>
         </div>
-    </div>
-);}
+    );
+}
