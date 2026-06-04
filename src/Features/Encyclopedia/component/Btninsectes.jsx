@@ -114,22 +114,23 @@ export default function BtnInsectes() {
                     <p>Aucun résultat</p>
                 ) : (
                     data.map((item) => (
-                        <div key={item._id} className="bg-linear-to-b  from-green-200  to-green-300 shadow-lg outline-green-950 outline-1 p-2 m-2 rounded-lg">
+                        <div key={item._id} className="bg-[url('/images/pattern_bug2.png')] outline-green-950 outline-1 p-2 m-2 rounded-lg">
+                            <div className="flex flex-col bg-white/60 rounded-lg m-10 ">
+                                <h2 className="text-2xl justify-center flex items-center text-froly-500 underline font-agbalumo mb-4" >{item.name}</h2>
+                                <div className="m-4 justify-center flex items-center mb-4">
+                                    <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} className="bg-white rounded-lg" />
+                                </div>
+                                <div className="flex flex-row mb-4">
+                                    <h3 className="text-froly-800 font-bold text-xl">💰 Prix :</h3>
+                                    <p className="text-xl mb-4"><span className="text-amber-600 font-bold">{item.price}</span> clochettes</p>
+                                </div>
 
-                            <h2 className="text-2xl justify-center flex items-center text-froly-500 underline font-agbalumo" >{item.name}</h2>
-                            <div className="m-4 justify-center flex items-center">
-                                <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} className="bg-white rounded-lg"/>
+                                <h3 className="text-froly-800 font-bold text-xl mb-4">😹 Jeu de mots :</h3>
+                                <p className="mb-4">{item.jdm}</p>
+
+                                <h3 className="text-froly-800 font-bold text-xl underline mb-4">🦉 Description de Thibou :</h3>
+                                <p className="mb-4">{item.description}</p>
                             </div>
-                            <div className="flex flex-row  ">
-                                <h3 className="text-froly-800 font-bold text-xl">💰 Prix :</h3>
-                                <p className="text-xl"><span className="text-amber-500 font-bold">{item.price}</span> clochettes</p>
-                            </div>
-
-                            <h3 className="text-froly-800 font-bold text-xl">😹 Jeu de mots :</h3>
-                            <p>{item.jdm}</p>
-
-                            <h3 className="text-froly-800 font-bold text-xl underline ">🦉 Description de Thibou :</h3>
-                            <p>{item.description}</p>
                         </div>
                     ))
                 )}
