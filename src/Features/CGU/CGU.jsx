@@ -1,9 +1,9 @@
 
 export const CGU = () => {
     return (
-        <div className="bg-blue-950 h-screen text-white">
+        <div className="bg-cyan-950 h-full text-white">
             <h1 className="text-2xl text-froly-600 font-semibold font-agbalumo flex justify-center items-center mb-4 mt-2">Conditions Générales d'Utilisation</h1>
-            <div className="text-md flex flex-col ml-6 mr-6">
+            <div className="text-md flex flex-col ml-6 mr-6 mb-10">
                 <div className="mb-5">
                     <p>
                         Le présent site a pour objectif de fournir une aide, du contenu et des jeux autour du jeux Animal Crossing New Horizon.

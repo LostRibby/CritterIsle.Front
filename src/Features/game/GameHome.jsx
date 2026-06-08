@@ -20,7 +20,7 @@ export const GameHome = () => {
                     Tâches
                 </button>
 
-                <button className="btn-tasks" onClick={() => navigate("/game/memoryGame", { replace: true })}>
+                <button className="btn-memory" onClick={() => navigate("/game/memoryGame", { replace: true })}>
                     Memory game
                 </button>
             </div>

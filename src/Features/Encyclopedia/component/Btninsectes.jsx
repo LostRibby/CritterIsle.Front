@@ -29,7 +29,7 @@ export default function BtnInsectes() {
 
     return (
         <div className="flex flex-col gap-2 justify-center items-center">
-            <h2 className=" font-bold">Filtrer les insectes</h2>
+            <h2 className=" font-bold font-bold border-2 border-emerald-800 bg-emerald-200 rounded-lg p-2 text-emerald-800 mb-2 mt-2">Filtrer les insectes</h2>
 
 
             <div className="btn-group-encyclopedia mb-4 ">
@@ -114,8 +114,8 @@ export default function BtnInsectes() {
                     <p>Aucun résultat</p>
                 ) : (
                     data.map((item) => (
-                        <div key={item._id} className="bg-[url('/images/pattern_bug2.png')] outline-green-950 outline-1 p-2 m-2 rounded-lg">
-                            <div className="flex flex-col bg-white/60 rounded-lg m-10 ">
+                        <div key={item._id} className="bg-[url('/images/pattern_bug2.png')] shadow-lg shadow-grey-700 outline-green-950 outline-1 p-2 m-2 rounded-lg">
+                            <div className="flex flex-col bg-white/60 rounded-lg m-10 p-3">
                                 <h2 className="text-2xl justify-center flex items-center text-froly-500 underline font-agbalumo mb-4" >{item.name}</h2>
                                 <div className="m-4 justify-center flex items-center mb-4">
                                     <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} className="bg-white rounded-lg" />

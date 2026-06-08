@@ -29,7 +29,7 @@ export default function BtnDSC() {
 
     return (
         <div className="flex flex-col gap-2 justify-center items-center bg">
-            <h2 className=" font-bold">Filtrer les créatures marines</h2>
+            <h2 className=" font-bold border-2 border-cyan-800 bg-cyan-200 rounded-lg p-2 text-cyan-800 mb-2 mt-2">Filtrer les créatures marines</h2>
 
             <div className="btn-group-encyclopedia mb-4">
                 <button className={`btn ${active === "hiver" ? "btn-active" : ""}`} onClick={() => {
@@ -101,23 +101,23 @@ export default function BtnDSC() {
                     <p>Aucun résultat</p>
                 ) : (
                     data.map((item) => (
-                        <div key={item._id} className=" bg-blue-950 inset-shadow-m inset-shadow-froly-700 p-2 m-2 rounded-lg">
+                        <div key={item._id} className=" bg-[url('/images/pattern-Creatures.png')] shadow-lg shadow-grey-900 outline-blue-950 outline-1 p-2 m-2 rounded-lg">
+                            <div className="flex flex-col bg-black/60 rounded-lg m-10 p-3">
+                                <h2 className="text-2xl justify-center flex items-center text-froly-200 underline font-agbalumo mb-4" >{item.name}</h2>
+                                <div className="m-4 justify-center flex items-center mb-4">
+                                    <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
+                                </div>
+                                <div className="flex flex-row mb-4">
+                                    <h3 className="text-froly-500 font-bold text-xl">💰 Prix :</h3>
+                                    <p className="text-white"><span className="text-amber-500 font-bold">{item.price}</span> clochettes</p>
+                                </div>
 
-                            <h2 className="text-2xl justify-center flex items-center text-froly-200 underline font-agbalumo" >{item.name}</h2>
-                            <div className="m-4 justify-center flex items-center">
-                                <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
-                            </div>
-                            <div classNmae="flex flex-row">
-                                <h3 className="text-froly-500 font-bold text-xl">💰 Prix :</h3>
-                                <p className="text-white"><span className="text-amber-500 font-bold">{item.price}</span> clochettes</p>
-                            </div>
+                                <h3 className="text-froly-500 font-bold text-xl mb-4">😹 Jeu de mots :</h3>
+                                <p className="text-white mb-4">{item.jdm}</p>
 
-                            <h3 className="text-froly-500 font-bold text-xl">😹 Jeu de mots :</h3>
-                            <p className="text-white">{item.jdm}</p>
-
-                            <h3 className="text-froly-500 font-bold text-xl underline ">🦉 Description de Thibou :</h3>
-                            <p className="text-white">{item.description}</p>
-                        </div>
+                                <h3 className="text-froly-500 font-bold text-xl underline mb-4">🦉 Description de Thibou :</h3>
+                                <p className="text-white mb-4">{item.description}</p>
+                            </div></div>
                     ))
                 )}
             </div>

@@ -31,9 +31,9 @@ export default function BtnPoissons() {
 
     return (
         <div className="flex flex-col gap-2 justify-center items-center">
-            <h2 className="font-bold">Filtrer les poissons</h2>
+            <h2 className="font-bold border-2 border-blue-800 bg-blue-200 rounded-lg p-2 text-blue-800 mb-2 mt-2">Filtrer les poissons</h2>
 
-            <div className="btn-group-encyclopedia mb-4">
+            <div className="btn-group-encyclopedia mb-4 ">
 
                 <button className={`btn ${active === "hiver" ? "btn-active" : ""}`} onClick={() => {
                     setActive("hiver");
@@ -102,26 +102,26 @@ export default function BtnPoissons() {
                     <p>Aucun résultat</p>
                 ) : (
                     data.map((item) => (
-                        <div key={item._id} className=" bg-cyan-700 bg-[url('/images/pattern_fish.jpg')] inset-shadow-m inset-shadow-froly-700 p-2 m-2 rounded-lg">
-<div className="flex flex-col bg-white/60 rounded-lg m-10 ">
-                            <h2 className="text-2xl justify-center flex items-center text-froly-200 underline font-agbalumo" >{item.name}</h2>
-                            <div className="m-4 justify-center flex items-center">
-                                <img className="size-20" src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
-                            </div>
-                            <div classNmae="flex flex-row">
-                                <h3 className="text-froly-800 font-bold text-xl">💰 Prix :</h3>
-                                <p><span className="text-amber-500 font-bold">{item.price}</span> clochettes</p>
-                            </div>
+                        <div key={item._id} className=" bg-cyan-700 bg-[url('/images/pattern_fish.jpg')] outline-cyan-950 outline-1 shadow-lg shadow-grey-700 p-2 m-2 rounded-lg">
+                            <div className="flex flex-col bg-white/60 rounded-lg m-10 p-3 ">
+                                <h2 className="text-2xl justify-center flex items-center text-froly-200 underline font-agbalumo" >{item.name}</h2>
+                                <div className="m-4 justify-center flex items-center">
+                                    <img className="size-20" src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
+                                </div>
+                                <div classNmae="flex flex-row">
+                                    <h3 className="text-froly-800 font-bold text-xl">💰 Prix :</h3>
+                                    <p><span className="text-amber-500 font-bold">{item.price}</span> clochettes</p>
+                                </div>
 
-                            <h3 className="text-froly-800 font-bold text-xl">😹 Jeu de mots :</h3>
-                            <p>{item.jdm}</p>
+                                <h3 className="text-froly-800 font-bold text-xl">😹 Jeu de mots :</h3>
+                                <p>{item.jdm}</p>
 
-                            <h3 className="text-froly-800 font-bold text-xl underline ">🦉 Description de Thibou :</h3>
-                            <p>{item.description}</p>
-                        </div></div>
-            ))
+                                <h3 className="text-froly-800 font-bold text-xl underline ">🦉 Description de Thibou :</h3>
+                                <p>{item.description}</p>
+                            </div></div>
+                    ))
                 )}
-        </div>
+            </div>
         </div >
     )
 }

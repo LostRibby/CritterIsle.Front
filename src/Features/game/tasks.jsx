@@ -164,27 +164,27 @@ const toggleTasks = (id) => {
     return (
         <section>
             <div className="bg-orange-100 min-h-screen bg-lineart-to-b from-coral-200 to-coral-400 flex items-center justify-center p-6 rounded-lg">
-                <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md">
+                <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-2xl">
                     <h1 className=" font-bold text-center mb-2">Daily Tracker 🏝️</h1>
                     <p className="text-center text-gray-500 mb-6">
                         {new Date().toLocaleDateString("fr-FR")}</p>
 
                     <div className="bg-yellow-100 rounded-2xl p-4 mb-4">
-                        <div className="flex justify-between mb-2">
-                            <span className="font-semibold">
+                        <div className="flex justify-between">
+                            <span className="font-semibold ml-3">
                                 Clochettes 💰
                             </span>
                             <span>
                                 {bells}
                             </span>
                         </div>
-                        <div className="flex justify-between mb-2">
-                            <span className="font-semibold">Série 🔥</span>
+                        <div className="flex justify-between">
+                            <span className="font-semibold ml-3">Série 🔥</span>
                             <span>{streak} jours</span>
                         </div>
 
                         <div className="flex justify-between">
-                            <span className="font-semibold">Météo ⛅</span>
+                            <span className="font-semibold ml-3">Météo ⛅</span>
                             <span>{weather}</span>
                         </div>
                     </div>
@@ -198,7 +198,7 @@ const toggleTasks = (id) => {
                                     ? "bg-blue-100 border-blue-400 line-through text-gray-500"
                                     : "bg-gray-50 border-gray-200 hover:bg-green-50"
                                     }`}>
-                                {task.done ? "✅" : "⬜"}{task.text}
+                                {task.done ? "✅" : "⬜"} {task.text}
                             </button>
                         ))}
                     </div>
