@@ -29,7 +29,7 @@ export default function BtnInsectes() {
 
     return (
         <div className="flex flex-col gap-2 justify-center items-center">
-            <h2 className=" font-bold font-bold border-2 border-emerald-800 bg-emerald-200 rounded-lg p-2 text-emerald-800 mb-2 mt-2">Filtrer les insectes</h2>
+            <h2 className="font-bold border-2 border-emerald-800 bg-emerald-200 rounded-lg p-2 text-emerald-800 mb-2 mt-2">Filtrer les insectes</h2>
 
 
             <div className="btn-group-encyclopedia mb-4 ">
