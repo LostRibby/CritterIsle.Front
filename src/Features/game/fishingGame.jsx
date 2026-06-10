@@ -32,7 +32,7 @@ export default function FishingGame() {
     const loadFishes = async () => {
         try {
             const response = await axios.get(
-                "https://critterisle-back-2.onrender.comapi/Fishes"
+                "https://critterisle-back-2.onrender.comapi/api/Fishes"
             );
 
             setFishTypes(response.data.data);
