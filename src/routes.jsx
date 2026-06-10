@@ -15,7 +15,7 @@ import { Apropos } from "./Features/apropos/Apropos";
 import MemoryGame from "./Features/game/MemoryGame";
 import { CGU } from "./Features/CGU/CGU";
 import {Register}  from "./Features/auth/pages/register";
-import {Login} from "./Features/auth/pages/Login.jsx";
+import {Login} from "./Features/auth/pages/login";
 
 
 
