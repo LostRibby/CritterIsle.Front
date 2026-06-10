@@ -5,7 +5,7 @@ import {tokenAtom} from '../atoms/auth.atom';
 const userService = {
     getAll: async()=>{
         const token= getDefaultStore().get(tokenAtom); 
-        const response = await axios.get('http://localhost:3000/api/Users', {
+        const response = await axios.get('https://critterisle-back-2.onrender.com/api/Users', {
             headers:{
                 Authorization:`Bearer ${token}` 
             }
