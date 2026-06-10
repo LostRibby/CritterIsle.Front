@@ -20,7 +20,7 @@ export default function MemoryGame() {
     const fetchBugs = async () => {
         try {
             const response = await axios.get(
-                "https://critter-isle-back-nzhj.vercel.app/api/Bugs"
+                "http://localhost:3000/api/Bugs"
             );
 
             const bugCards = response.data.data.map(bug => ({

@@ -106,7 +106,7 @@ export default function BtnPoissons() {
                             <div className="flex flex-col bg-white/60 rounded-lg m-10 p-3 ">
                                 <h2 className="text-2xl justify-center flex items-center text-froly-200 underline font-agbalumo" >{item.name}</h2>
                                 <div className="m-4 justify-center flex items-center">
-                                    <img className="size-20" src={`https://critter-isle-back-nzhj.vercel.app/uploads/${item.image}`} alt={item.name} />
+                                    <img className="size-20" src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
                                 </div>
                                 <div classNmae="flex flex-row">
                                     <h3 className="text-froly-800 font-bold text-xl">💰 Prix :</h3>
