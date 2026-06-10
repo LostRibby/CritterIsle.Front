@@ -32,7 +32,7 @@ export default function FishingGame() {
     const loadFishes = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:3000/api/Fishes"
+                "https://critter-isle-back-nzhj.vercel.app/api/Fishes"
             );
 
             setFishTypes(response.data.data);
@@ -100,7 +100,7 @@ export default function FishingGame() {
     const saveScore = async (newScore) => {
         try {
             await axios.post(
-                "http://localhost:3000/api/Score",
+                "https://critter-isle-back-nzhj.vercel.app/api/Score",
 
                 {
                     score: newScore

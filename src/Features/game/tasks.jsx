@@ -78,7 +78,7 @@ export default function TasksHome() {
 
                 const token = localStorage.getItem("token");
                 if (!token) return
-                const res = await axios.get("http://localhost:3000/api/auth/me", {
+                const res = await axios.get("https://critter-isle-back-nzhj.vercel.app/api/auth/me", {
                     headers: {
                         authorization: token
                     }
@@ -104,7 +104,7 @@ export default function TasksHome() {
             const token = localStorage.getItem("token");
 
 
-            await axios.put("http://localhost:3000/api/auth/save", {
+            await axios.put("https://critter-isle-back-nzhj.vercel.app/api/auth/save", {
                 bells,
                 streak
             }, {
