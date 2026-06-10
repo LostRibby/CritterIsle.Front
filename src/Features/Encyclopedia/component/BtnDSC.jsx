@@ -22,7 +22,7 @@ export default function BtnDSC() {
         });
     };
     useEffect(() => {
-        axios.get(`https://critter-isle-back-nzhj.vercel.app/api/Creatures`, { params: filters })
+        axios.get(`http://critter-isle-back-nzhj.vercel.app/api/Creatures`, { params: filters })
             .then((res) => setData(res.data.data));
     }, [filters]);
     console.log("DATA:", data);
