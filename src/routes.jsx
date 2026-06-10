@@ -1,7 +1,7 @@
 import App from "./App";
 import { ProtectedPage } from "./Features/auth/ProtectedPage";
-import { Login } from "./Features/auth/pages/Login";
-import { Register } from "./Features/auth/pages/Register";
+
+
 import {Home } from "./layout/pages/Home";
 import TasksHome from "./Features/game/tasks";
 import { NotFound } from "./layout/pages/NotFound";
@@ -14,6 +14,10 @@ import BtnDSC from "./Features/Encyclopedia/component/BtnDSC";
 import { Apropos } from "./Features/apropos/Apropos";
 import MemoryGame from "./Features/game/MemoryGame";
 import { CGU } from "./Features/CGU/CGU";
+import { Register } from "./Features/auth/pages/Register";
+import { Login } from "./Features/auth/pages/Login";
+
+
 
 /**
  * @type {import("react-router").RouteObject}
