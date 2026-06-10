@@ -104,7 +104,7 @@ export default function BtnPoissons() {
                     data.map((item) => (
                         <div key={item._id} className=" bg-cyan-700 bg-[url('/images/pattern_fish.jpg')] outline-cyan-950 outline-1 shadow-lg shadow-grey-700 p-2 m-2 rounded-lg">
                             <div className="flex flex-col bg-white/60 rounded-lg m-10 p-3 ">
-                                <h2 className="text-2xl justify-center flex items-center text-froly-200 underline font-agbalumo" >{item.name}</h2>
+                                <h2 className="text-2xl justify-center flex items-center text-froly-400 underline font-agbalumo" >{item.name}</h2>
                                 <div className="m-4 justify-center flex items-center">
                                     <img className="size-20" src={`https://critterisle-back-2.onrender.com/uploads/${item.image}`} alt={item.name} />
                                 </div>
