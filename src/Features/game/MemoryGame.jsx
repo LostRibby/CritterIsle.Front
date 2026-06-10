@@ -20,7 +20,7 @@ export default function MemoryGame() {
     const fetchBugs = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:3000/api/Bugs"
+                "https://critterisle-back-2.onrender.com/api/Bugs"
             );
 
             const bugCards = response.data.data.map(bug => ({
