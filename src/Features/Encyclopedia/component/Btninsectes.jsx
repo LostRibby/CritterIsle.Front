@@ -22,7 +22,7 @@ export default function BtnInsectes() {
         });
     };
     useEffect(() => {
-        axios.get(`https://critter-isle-back-nzhj.vercel.app/api/Bugs`, { params: filters })
+        axios.get(`https://critterisle-back-2.onrender.com/api/Bugs`, { params: filters })
             .then((res) => setData(res.data.data));
     }, [filters]);
     console.log("DATA:", data)
@@ -118,7 +118,7 @@ export default function BtnInsectes() {
                             <div className="flex flex-col bg-white/60 rounded-lg m-10 p-3">
                                 <h2 className="text-2xl justify-center flex items-center text-froly-500 underline font-agbalumo mb-4" >{item.name}</h2>
                                 <div className="m-4 justify-center flex items-center mb-4">
-                                    <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} className="bg-white rounded-lg" />
+                                    <img src={`https://critterisle-back-2.onrender.com/uploads/${item.image}`} alt={item.name} className="bg-white rounded-lg" />
                                 </div>
                                 <div className="flex flex-row mb-4">
                                     <h3 className="text-froly-800 font-bold text-xl">💰 Prix :</h3>
