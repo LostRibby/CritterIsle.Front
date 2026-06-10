@@ -22,7 +22,7 @@ export default function BtnDSC() {
         });
     };
     useEffect(() => {
-        axios.get(`http://critter-isle-back-nzhj.vercel.app/api/Creatures`, { params: filters })
+        axios.get(`https://critter-isle-back-nzhj.vercel.app/api/Creatures`, { params: filters })
             .then((res) => setData(res.data.data));
     }, [filters]);
     console.log("DATA:", data);
@@ -105,7 +105,7 @@ export default function BtnDSC() {
                             <div className="flex flex-col bg-black/60 rounded-lg m-10 p-3">
                                 <h2 className="text-2xl justify-center flex items-center text-froly-200 underline font-agbalumo mb-4" >{item.name}</h2>
                                 <div className="m-4 justify-center flex items-center mb-4">
-                                    <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.name} />
+                                    <img src={`https://localhost:3000/uploads/${item.image}`} alt={item.name} />
                                 </div>
                                 <div className="flex flex-row mb-4">
                                     <h3 className="text-froly-500 font-bold text-xl">💰 Prix :</h3>
