@@ -14,8 +14,8 @@ import BtnDSC from "./Features/Encyclopedia/component/BtnDSC";
 import { Apropos } from "./Features/apropos/Apropos";
 import MemoryGame from "./Features/game/MemoryGame";
 import { CGU } from "./Features/CGU/CGU";
-import { Register } from "./Features/auth/pages/Register";
-import { Login } from "./Features/auth/pages/Login";
+import { Register } from "./Features/auth/pages/Register.jsx";
+import { Login } from "./Features/auth/pages/Login.jsx";
 
 
 
